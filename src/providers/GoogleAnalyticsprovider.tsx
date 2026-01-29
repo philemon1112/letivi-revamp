@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import ReactGA from "react-ga4";
 
-const TRACKING_ID = `${process.env.NEXT_PUBLIC_ANALYTICS_ID}`; // replace with your GA4 ID
+const TRACKING_ID = `${process.env.NEXT_PUBLIC_ANALYTICS_ID}`; // replace with your GA4 ID here
 
 export const GoogleAnalyticsProvider = () => {
   const pathname = usePathname();
