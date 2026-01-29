@@ -10,7 +10,7 @@ import AppLogo from "@/components/molecules/AppLogo";
 import Loader from "@/components/atoms/Loader";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import AppleLogin from "react-apple-login";
+// TODO: Re-implement Apple login without react-apple-login (incompatible with React 19)
 import { useGoogleLogin } from "@react-oauth/google";
 import { Button } from "@/components/atoms/Button";
 import { loginUser, verifyTwoFactor } from "@/services/auth";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AppleLogin from "react-apple-login";
+// TODO: Re-implement Apple login without react-apple-login (incompatible with React 19)
 import { useGoogleLogin } from "@react-oauth/google";
 // import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
@@ -105,30 +105,7 @@ function SocialSignUp({ inviter_id }: { inviter_id: string }) {
 
   return (
     <div className="flex flex-col lg:flex-row items-center lg:space-x-4 mt-6">
-      <AppleLogin
-        clientId={`${process.env.NEXT_PUBLIC_APPLE_ID_PROD}`}
-        redirectURI={`${process.env.NEXT_PUBLIC_FRONTEND_BASE_URL}/signup`}
-        scope="email name"
-        state="state"
-        usePopup={true}
-        callback={appleSignUp}
-        render={(renderProps) => (
-          <button
-            onClick={renderProps.onClick}
-            className="bg-white border border-black flex justify-center items-center space-x-4 rounded-full lg:p-4 p-2 mt-4 lg:text-base text-sm w-full text-[#333333]"
-          >
-            {loading.apple ? (
-              <div className="flex justify-center">
-                <Loader />
-              </div>
-            ) : (
-              <>
-                <Image src={Apple} alt="" /> <h1>Sign up with Apple</h1>
-              </>
-            )}
-          </button>
-        )}
-      />
+      {/* TODO: Re-implement Apple login without react-apple-login (incompatible with React 19) */}
       <button
         onClick={() => googleSignup()}
         className="bg-white border border-black flex justify-center items-center space-x-3 rounded-full lg:p-5 p-3 mt-4 lg:text-base text-sm w-full text-[#333333]"
