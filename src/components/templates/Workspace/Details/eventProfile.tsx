@@ -5,7 +5,7 @@ import SocialHandles from "@/components/molecules/SocialHandles";
 import BusinessForm from "@/components/organisms/WorkspaceModals/businessForm";
 import ConfirmDelete from "@/components/organisms/WorkspaceModals/confirmDelete";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
-import { deleteBusinessWorkspace } from "@/services/workspaces";
+import { deleteEventWorkspace } from "@/services/workspaces";
 import { WorkspaceData } from "@/types/common";
 import { useRouter } from "next/navigation";
 import { getApiMedia } from "@/utils/getApiMedia";
@@ -54,16 +54,16 @@ function EventProfile({
     setLoading(true);
     try {
       if (eventData?.id !== undefined) {
-        const res = await deleteBusinessWorkspace(eventData.id);
+        const res = await deleteEventWorkspace(eventData.id);
       } else {
-        throw new Error("Business is undefined");
+        throw new Error("Event is undefined");
       }
       handleCloseModal();
-      toast.success("Business Deleted Successfully");
+      toast.success("Event Deleted Successfully");
       router.push("/profile/workspace");
     } catch (error) {
       toast.error(
-        (error as any)?.response?.data?.message || "An error occurred"
+        (error as any)?.response?.data?.message || "An error occurred",
       );
     } finally {
       setLoading(false);
@@ -149,8 +149,8 @@ function EventProfile({
                       ? "Unfollowing..."
                       : "Following..."
                     : isFollowing
-                    ? "Unfollow"
-                    : "Follow"}
+                      ? "Unfollow"
+                      : "Follow"}
                 </Button>
               )}
 
